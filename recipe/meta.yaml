@@ -16,7 +16,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 0
+  number: 1
   skip: true  # [win32]
 
   rpaths:
@@ -84,9 +84,11 @@ about:
     datasets and quickly  modify selection criteria.  Further high-performance enhancements
     can be made available upon request.
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - dpryan79
     - johanneskoester
     - bgruening
