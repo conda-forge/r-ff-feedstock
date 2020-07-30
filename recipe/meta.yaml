@@ -1,4 +1,4 @@
-{% set version = "2.2-14.2" %}
+{% set version = "4.0.2" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,13 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/ff_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ff/ff_{{ version }}.tar.gz
-  sha256: f8c06ac333ffe3545cdf56531619865176e1827728f7aeeba82d135d5c5e37e4
+  sha256: c02e1bfa66d24bdf6b04b5ac128c7673d3e99c8a0a53e50b09d89c4d26ac6ee1
 
 build:
   merge_build_host: true  # [win]
-  number: 1
-  skip: true  # [win32]
-
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -32,11 +30,11 @@ requirements:
     - {{ compiler('m2w64_cxx') }}  # [win]
   host:
     - r-base
-    - r-bit >=1.1_12
+    - r-bit >=4.0.0
 
   run:
     - r-base
-    - r-bit >=1.1_12
+    - r-bit >=4.0.0
 
 test:
   commands:
@@ -45,7 +43,7 @@ test:
 
 about:
   home: http://ff.r-forge.r-project.org/
-  license: GPL-2
+  license: GPL-2.0-or-later
   summary: |
     The ff package provides data structures that are stored on disk but behave (almost)
     as if they were in RAM by transparently  mapping only a section (pagesize) in main
@@ -84,13 +82,10 @@ about:
     datasets and quickly  modify selection criteria.  Further high-performance enhancements
     can be made available upon request.
   license_family: GPL2
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - dpryan79
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
