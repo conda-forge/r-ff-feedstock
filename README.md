@@ -5,7 +5,7 @@ Home: http://ff.r-forge.r-project.org/
 
 Package license: GPL-2.0-or-later
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ff-feedstock/blob/master/LICENSE.txt)
 
 Summary: The ff package provides data structures that are stored on disk but behave (almost)
 as if they were in RAM by transparently  mapping only a section (pagesize) in main
@@ -43,8 +43,6 @@ can store subscript information (''bit'',  ''bitwhich'', ff ''boolean'', ri rang
 index, hi hybrid index). This allows to work interactively with selections of large
 datasets and quickly  modify selection criteria.  Further high-performance enhancements
 can be made available upon request.
-
-
 
 
 Current build status
