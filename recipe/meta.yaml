@@ -1,4 +1,4 @@
-{% set version = "4.0.4" %}
+{% set version = "4.0.5" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/ff_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ff/ff_{{ version }}.tar.gz
-  sha256: 22ecf1811263f27c9fd9f7e13e77f97dcbc0b8ae6f59b76dbaed77569c13d2e5
+  sha256: 9aba9e271144ec224063ddba0d791e2fcdb9c912d48fdc49e204fce628355037
 
 build:
   merge_build_host: true  # [win]
