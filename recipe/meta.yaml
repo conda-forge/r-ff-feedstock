@@ -30,6 +30,7 @@ requirements:
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}sed               # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
     - r-bit >=4.0.0
