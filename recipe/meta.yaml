@@ -27,6 +27,7 @@ requirements:
     - {{ stdlib("m2w64_c") }}    # [win]
     - {{ compiler('cxx') }}        # [unix]
     - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ posix }}make
   host:
     - r-base
     - r-bit >=4.0.0
