@@ -28,6 +28,8 @@ requirements:
     - {{ compiler('cxx') }}        # [unix]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}make
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}sed               # [win]
   host:
     - r-base
     - r-bit >=4.0.0
