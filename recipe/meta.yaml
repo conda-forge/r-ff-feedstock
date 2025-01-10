@@ -31,10 +31,11 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-bit >=4.0.0                # [build_platform != target_platform]
   host:
     - r-base
     - r-bit >=4.0.0
-
   run:
     - r-base
     - r-bit >=4.0.0
