@@ -1,4 +1,4 @@
-{% set version = "4.5.0" %}
+{% set version = "4.5.2" %}
 
 {% set posix = 'm2-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/ff_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ff/ff_{{ version }}.tar.gz
-  sha256: 2aed9052a93ca81af4c8cc7defce0f7aa0206b442b4795b6219f6e56b341188e
+  sha256: 0551f57cfcc7b05f3ed85b4b9570b3a96597e687db0c67fb3f26e38d92c6352c
 
 build:
   number: 0
