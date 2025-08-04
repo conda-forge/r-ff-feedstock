@@ -1,5 +1,4 @@
 {% set version = "4.5.2" %}
-
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -7,32 +6,35 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: ff_{{ version }}.tar.gz
   url:
     - https://cran.r-project.org/src/contrib/ff_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/ff/ff_{{ version }}.tar.gz
   sha256: 0551f57cfcc7b05f3ed85b4b9570b3a96597e687db0c67fb3f26e38d92c6352c
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [unix]
-    - {{ stdlib("c") }}          # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ stdlib("m2w64_c") }}    # [win]
-    - {{ compiler('cxx') }}        # [unix]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-bit >=4.0.0                # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
+    - {{ compiler('cxx') }}        # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
-    - r-bit >=4.0.0                # [build_platform != target_platform]
   host:
     - r-base
     - r-bit >=4.0.0
